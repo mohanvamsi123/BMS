@@ -4,8 +4,10 @@ from .actions.CategoryAction import category
 from src.Configurations.MongoClient import bmsdb, fs, companyDB
 from bson.objectid import ObjectId
 from src.utils.UsualUtil import send_response
+from flask_cors import *
 
 app = Flask(__name__)
+CORS(app)
 app.register_blueprint(company)
 app.register_blueprint(category)
 

@@ -34,6 +34,8 @@ def add_company_details():
         companycollec.insert_one(data)
         return send_response(True, msg="Data entered"), 200
     except Exception as e:
+        print(e)
+        print("-=-=-=-=-")
         return send_response(False, msg="failed due to some error, Try again if you are patient"), 500
 
 
