@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -11,11 +10,11 @@ import { GlobalhttpService } from '../globalhttp.service';
 import { GlobalvariablesService } from '../globalvariables.service';
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss'],
+  selector: 'app-admin-user',
+  templateUrl: './admin-user.component.html',
+  styleUrls: ['./admin-user.component.scss'],
 })
-export class AdminComponent implements OnInit {
+export class AdminUserComponent implements OnInit {
   moresize: boolean = false;
   PostDetails: FormGroup;
   ApiUrl: any;
@@ -23,9 +22,7 @@ export class AdminComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private httpClient: HttpClient,
     private globalhttp: GlobalhttpService,
-    private globalvariable: GlobalvariablesService,
-    private router: Router,
-		private route: ActivatedRoute,
+    private globalvariable: GlobalvariablesService
   ) {
     this.ApiUrl = this.globalvariable.ApiUrl;
   }
@@ -60,11 +57,6 @@ export class AdminComponent implements OnInit {
     } else {
       this.moresize = true;
     }
-  }
-  navigate() {
-    
-      this.router.navigate([ 'AdminConfiguration' ], { relativeTo: this.route });
-    
   }
   postdata() {
     if (this.PostDetails.valid) {
